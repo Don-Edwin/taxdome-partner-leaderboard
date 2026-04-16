@@ -1,112 +1,122 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    body {background-color: #0c0e12}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0; min-height: 15.0px}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.65); -webkit-text-stroke: rgba(255, 255, 255, 0.65)}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.6); -webkit-text-stroke: rgba(255, 255, 255, 0.6)}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.8); -webkit-text-stroke: rgba(255, 255, 255, 0.8); background-color: #41db6d; min-height: 13.0px}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.8); -webkit-text-stroke: rgba(255, 255, 255, 0.8)}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px '.Apple Color Emoji UI'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 22.0px 'Helvetica Neue'; color: #0c62a7; -webkit-text-stroke: #0c62a7}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px 'Helvetica Neue'; color: #383e46; -webkit-text-stroke: #383e46}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #383e46; -webkit-text-stroke: #383e46}
-    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 20.0px '.Apple Color Emoji UI'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #ef9620; -webkit-text-stroke: #ef9620}
-    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #15a5cf; -webkit-text-stroke: #15a5cf}
-    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #80d9eb; -webkit-text-stroke: #80d9eb}
-    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #0c62a7}
-    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c}
-    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #78818c; -webkit-text-stroke: #78818c; background-color: #12151a}
-    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 10.0px 'Helvetica Neue'; color: #383e46; -webkit-text-stroke: #383e46}
-    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0; min-height: 16.0px}
-    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.0px 'Helvetica Neue'; color: #e0e8f0; -webkit-text-stroke: #e0e8f0}
-    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Helvetica Neue'; color: #383e46; -webkit-text-stroke: #383e46}
-    p.p23 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #383e46; -webkit-text-stroke: #383e46; min-height: 13.0px}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; background-color: rgba(255, 255, 255, 0.1)}
-    span.s3 {font-kerning: none; background-color: #12151a}
-    span.s4 {font-kerning: none; background-color: rgba(239, 150, 32, 0.13)}
-    span.s5 {font-kerning: none; background-color: rgba(21, 165, 207, 0.1)}
-    span.s6 {font-kerning: none; background-color: rgba(21, 165, 207, 0.059)}
-    table.t1 {border-collapse: collapse; table-layout: fixed}
-    td.td1 {width: 44.0px; background-color: #12151a; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #383e46 #383e46 #1b2431 #383e46; padding: 10.0px 13.0px 10.0px 13.0px}
-    td.td2 {width: 224.4px; background-color: #12151a; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #383e46 #383e46 #1b2431 #383e46; padding: 10.0px 13.0px 10.0px 13.0px}
-    td.td3 {width: 104.7px; background-color: #12151a; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #383e46 #383e46 #1b2431 #383e46; padding: 10.0px 13.0px 10.0px 13.0px}
-    td.td4 {width: 270.2px; background-color: #12151a; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #383e46 #383e46 #1b2431 #383e46; padding: 10.0px 13.0px 10.0px 13.0px}
-    td.td5 {width: 748.0px; padding: 12.0px 13.0px 12.0px 13.0px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaxDome Partner Program Leaderboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #0A1628; color: #E6EDF3; padding: 0; margin: 0; }
+  .lb { max-width: 860px; margin: 0 auto; padding: 20px 16px 32px; }
+  .hdr { background: #0F1F35; border: 1px solid #1E3A5F; border-radius: 14px; padding: 20px 22px; margin-bottom: 14px; position: relative; overflow: hidden; }
+  .hdr-stripe { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #03045E, #0077B6, #00B4D8, #0077B6, #03045E); }
+  .hdr-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-logo { width: 36px; height: 40px; flex-shrink: 0; }
+  .brand-name { font-size: 13px; font-weight: 700; color: #ffffff; letter-spacing: 0.04em; }
+  .live-pill { display: flex; align-items: center; gap: 5px; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2); border-radius: 999px; padding: 3px 10px; font-size: 10px; color: #4ADE80; }
+  .live-dot { width: 5px; height: 5px; border-radius: 50%; background: #4ADE80; animation: blink 2s infinite; flex-shrink: 0; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+  .hdr h1 { font-size: 21px; font-weight: 700; color: #ffffff; margin-bottom: 3px; }
+  .hdr-sub { font-size: 11px; color: #3A5070; }
+  .stats { display: flex; gap: 10px; margin-bottom: 14px; }
+  .stat { flex: 1; background: #0F1F35; border: 1px solid #1E3A5F; border-radius: 11px; padding: 13px 14px; }
+  .stat-val { font-size: 24px; font-weight: 700; color: #00B4D8; line-height: 1; margin-bottom: 3px; }
+  .stat-label { font-size: 10px; color: #3A5070; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  .tbl-outer { background: #0F1F35; border: 1px solid #1E3A5F; border-radius: 14px; overflow: hidden; }
+  .tbl-head { display: flex; align-items: center; padding: 9px 16px; border-bottom: 1px solid #1E3A5F; background: #0A1628; }
+  .th { font-size: 10px; font-weight: 700; color: #3A5070; text-transform: uppercase; letter-spacing: 0.07em; }
+  .th-rank { width: 38px; flex-shrink: 0; }
+  .th-member { flex: 1; padding-left: 48px; }
+  .th-pts { width: 80px; text-align: right; flex-shrink: 0; }
+  .th-lvl { width: 105px; text-align: center; flex-shrink: 0; }
+  .th-prg { width: 155px; flex-shrink: 0; padding-left: 12px; }
+  .row { display: flex; align-items: center; padding: 13px 16px; border-bottom: 1px solid #142030; transition: background 0.15s; }
+  .row:last-child { border-bottom: none; }
+  .row:hover { background: rgba(0,180,216,0.03); }
+  .row.r1 { background: rgba(244,166,40,0.04); }
+  .row.r2 { background: rgba(180,180,180,0.03); }
+  .row.r3 { background: rgba(205,127,50,0.03); }
+  .c-rank { width: 38px; flex-shrink: 0; text-align: center; }
+  .medal { font-size: 19px; line-height: 1; }
+  .rnum { font-size: 13px; font-weight: 700; color: #3A5070; }
+  .c-av { width: 40px; flex-shrink: 0; margin-right: 8px; }
+  .av { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; border: 2px solid; }
+  .c-info { flex: 1; min-width: 0; }
+  .pname { font-size: 14px; font-weight: 600; color: #E6EDF3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pfirm { font-size: 11px; color: #3A5070; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .c-pts { width: 80px; text-align: right; flex-shrink: 0; }
+  .ptsval { font-size: 16px; font-weight: 700; color: #00B4D8; }
+  .ptslbl { font-size: 9px; color: #3A5070; }
+  .c-lvl { width: 105px; text-align: center; flex-shrink: 0; }
+  .pill { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+  .p-elite { background: rgba(244,166,40,0.1); color: #F4A628; border-color: rgba(244,166,40,0.3); }
+  .p-pro { background: rgba(0,180,216,0.1); color: #00B4D8; border-color: rgba(0,180,216,0.25); }
+  .p-partner { background: rgba(100,150,220,0.08); color: #6496DC; border-color: rgba(100,150,220,0.2); }
+  .c-prg { width: 155px; flex-shrink: 0; padding-left: 12px; }
+  .pi { margin-bottom: 4px; }
+  .pi:last-child { margin-bottom: 0; }
+  .pi-top { display: flex; justify-content: space-between; margin-bottom: 2px; }
+  .pi-lbl { font-size: 9px; color: #3A5070; }
+  .pi-pct { font-size: 9px; font-weight: 700; color: #5A8090; }
+  .pi-track { height: 4px; background: #142030; border-radius: 2px; }
+  .pi-fill { height: 4px; border-radius: 2px; }
+  .pi-hint { font-size: 9px; color: #253545; margin-top: 1px; }
+  .pdone { font-size: 11px; font-weight: 600; color: #4ADE80; }
+  .state { text-align: center; padding: 44px 20px; }
+  .spin { width: 30px; height: 30px; border: 3px solid #1E3A5F; border-top-color: #00B4D8; border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 10px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .stitle { font-size: 13px; font-weight: 600; color: #5A8090; margin-bottom: 3px; }
+  .ssub { font-size: 11px; color: #3A5070; }
+  .ebox { background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.18); border-radius: 10px; padding: 16px; margin: 16px; text-align: center; }
+  .etitle { font-size: 12px; font-weight: 600; color: #F87171; margin-bottom: 3px; }
+  .esub { font-size: 10px; color: #3A5070; }
+  .ft { display: flex; justify-content: space-between; padding: 12px 2px 0; flex-wrap: wrap; gap: 4px; }
+  .fn { font-size: 10px; color: #253545; }
+  @media (max-width: 580px) { .th-prg { display: none; } .c-prg { display: none; } .th-lvl { width: 85px; } .c-lvl { width: 85px; } .th-pts { width: 65px; } .c-pts { width: 65px; } }
+  @media (max-width: 420px) { .th-lvl { display: none; } .c-lvl { display: none; } }
+</style>
 </head>
 <body>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><b>TAXDOME</b></span></p>
-<h1 style="margin: 0.0px 0.0px 5.0px 0.0px; font: 24.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s1"><b>Partner Program Leaderboard</b></span></h1>
-<p class="p4"><span class="s1">2025 active term</span></p>
-<p class="p5"><span class="s1"></span><br></p>
-<p class="p6"><span class="s2">Updates automatically</span></p>
-<p class="p7"><span class="s3">👥</span></p>
-<p class="p8"><span class="s3"><b>--</b><b></b></span></p>
-<p class="p9"><span class="s3">TOTAL PARTNERS</span></p>
-<p class="p7"><span class="s3">🏆</span></p>
-<p class="p8"><span class="s3"><b>--</b><b></b></span></p>
-<p class="p9"><span class="s3">ELITE PARTNERS</span></p>
-<p class="p7"><span class="s3">⭐</span></p>
-<p class="p8"><span class="s3"><b>--</b><b></b></span></p>
-<p class="p9"><span class="s3">PRO PARTNERS</span></p>
-<p class="p7"><span class="s3">🎯</span></p>
-<p class="p8"><span class="s3"><b>--</b><b></b></span></p>
-<p class="p9"><span class="s3">TOTAL PTS AWARDED</span></p>
-<p class="p10"><span class="s1">PROGRAM TIERS</span></p>
-<p class="p11"><span class="s4">🏆</span></p>
-<p class="p12"><span class="s4"><b>Elite Partner</b><b></b></span></p>
-<p class="p13"><span class="s4">75+ contribution pts AND 10+ verified referrals</span></p>
-<p class="p11"><span class="s5">⭐</span></p>
-<p class="p14"><span class="s5"><b>Pro Partner</b><b></b></span></p>
-<p class="p13"><span class="s5">40+ contribution pts OR 30+ verified referrals</span></p>
-<p class="p11"><span class="s6">🤝</span></p>
-<p class="p15"><span class="s6"><b>Partner</b><b></b></span></p>
-<p class="p13"><span class="s6">Entry level for all approved participants</span></p>
-<p class="p16"><span class="s1">All</span></p>
-<p class="p17"><span class="s3">Elite</span></p>
-<p class="p17"><span class="s3">Pro</span></p>
-<p class="p17"><span class="s3">Partner</span></p>
-<p class="p18"><span class="s1">-- members</span></p>
-<table cellspacing="0" cellpadding="0" class="t1">
-  <tbody>
-    <tr>
-      <td valign="middle" class="td1">
-        <p class="p19"><span class="s1"><b>#</b></span></p>
-      </td>
-      <td valign="middle" class="td2">
-        <p class="p9"><span class="s1"><b>MEMBER</b></span></p>
-      </td>
-      <td valign="middle" class="td3">
-        <p class="p9"><span class="s1"><b>POINTS</b></span></p>
-      </td>
-      <td valign="middle" class="td3">
-        <p class="p9"><span class="s1"><b>LEVEL</b></span></p>
-      </td>
-      <td valign="middle" class="td4">
-        <p class="p9"><span class="s1"><b>NEXT TIER PROGRESS</b></span></p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="5" valign="middle" class="td5">
-        <p class="p20"><span class="s1"></span><br></p>
-        <p class="p21"><span class="s1">Loading leaderboard...</span></p>
-        <p class="p22"><span class="s1">Fetching live data from Google Sheets</span></p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<p class="p10"><span class="s1">Points = contribution pts + booster pts. Referrals tracked separately for tier qualification.</span></p>
-<p class="p23"><span class="s1"></span><br></p>
-</body>
-</html>
+<div class="lb">
+  <div class="hdr">
+    <div class="hdr-stripe"></div>
+    <div class="hdr-top">
+      <div class="brand">
+        <svg class="brand-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 149 166" xml:space="preserve">
+          <path style="fill:none;" d="M95.6,71.4h-6.2v23.3h6.2v0c7,0,11.6-4.6,11.6-11.6C107.3,76.1,102.6,71.4,95.6,71.4z"/>
+          <polygon style="fill:#ffffff;" points="43.3,104.4 44.1,104.4 53.1,104.4 53.9,104.4 53.9,103.6 53.9,71.5 65.6,71.5 66.4,71.5 66.4,70.7 66.4,62.4 66.4,61.6 65.6,61.6 31.5,61.6 30.8,61.6 30.8,62.4 30.8,70.7 30.8,71.5 31.5,71.5 43.3,71.5 43.3,103.6"/>
+          <path style="fill:#ffffff;" d="M95.6,61.6H78.8v42.8h16.8c13.1,0,22.6-9,22.6-21.4C118.3,70.6,108.8,61.6,95.6,61.6z M95.6,94.7L95.6,94.7l-6.2,0V71.4h6.2c7,0,11.6,4.7,11.6,11.7C107.3,90,102.6,94.7,95.6,94.7z"/>
+          <path style="fill:#ffffff;" d="M112.8,32.3c5,0,9-4.1,9-9.1c0-5-4-9.1-9-9.1c-5,0-9,4.1-9,9.1C103.8,28.2,107.8,32.3,112.8,32.3z"/>
+          <path style="fill:#00B4D8;" d="M139.9,35.2l-7.2-4.2c-0.8,1.9-1.8,3.7-3.1,5.4l7.2,4.2c3.4,2,5.5,5.6,5.5,9.6v65.7c0,4-2.1,7.6-5.5,9.6L80,158.4c-3.4,2-7.6,2-11.1,0l-56.8-32.9c-3.4-2-5.6-5.6-5.6-9.6V50.1c0-4,2.1-7.6,5.5-9.6L68.9,7.6c3.4-2,7.6-2,11.1,0l13.3,7.7c0.8-1.9,1.8-3.7,3.1-5.3L83.1,2.3c-5.3-3.1-11.9-3.1-17.2,0L9.1,35.2C3.8,38.3,0.5,44,0.5,50.1v65.7c0,6.2,3.3,11.9,8.6,14.9l56.8,32.9c5.3,3.1,11.9,3.1,17.2,0l56.8-32.9c5.3-3.1,8.6-8.8,8.6-14.9V50.1C148.5,44,145.2,38.3,139.9,35.2z"/>
+        </svg>
+        <span class="brand-name">TaxDome</span>
+      </div>
+      <div class="live-pill"><span class="live-dot"></span>Live</div>
+    </div>
+    <h1>Partner Program Leaderboard</h1>
+    <div class="hdr-sub" id="hdr-sub">2026 active term · loading...</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-val" id="s-total">--</div><div class="stat-label">Partners</div></div>
+    <div class="stat"><div class="stat-val" id="s-pro">--</div><div class="stat-label">Pro Partners</div></div>
+    <div class="stat"><div class="stat-val" id="s-elite">--</div><div class="stat-label">Elite Partners</div></div>
+    <div class="stat"><div class="stat-val" id="s-pts">--</div><div class="stat-label">Pts Awarded</div></div>
+  </div>
+  <div class="tbl-outer">
+    <div class="tbl-head">
+      <div class="th th-rank">#</div>
+      <div class="th th-member">Member</div>
+      <div class="th th-pts">Points</div>
+      <div class="th th-lvl">Level</div>
+      <div class="th th-prg">Next tier</div>
+    </div>
+    <div id="lb-rows">
+      <div class="state"><div class="spin"></div><div class="stitle">Loading leaderboard...</div><div class="ssub">Fetching live data from Google Sheets</div></div>
+    </div>
+  </div>
+  <div class="ft">
+    <span class="fn">Points = contribution + booster pts &nbsp;·&nbsp; Referrals tracked separately for tier qualification</span>
+    <span class="fn" id="ft-upd"></span>
+  </div>
+</div>
