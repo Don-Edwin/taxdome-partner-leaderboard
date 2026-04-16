@@ -120,3 +120,76 @@
     <span class="fn" id="ft-upd"></span>
   </div>
 </div>
+<script>
+  const API_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+  const AV=[
+    {bg:'#1A3A6B',tx:'#60A5FA',br:'#2D5A9B'},
+    {bg:'#2D1B69',tx:'#A78BFA',br:'#4C2D8A'},
+    {bg:'#064E3B',tx:'#34D399',br:'#065F46'},
+    {bg:'#78350F',tx:'#FCD34D',br:'#92400E'},
+    {bg:'#7F1D1D',tx:'#FCA5A5',br:'#991B1B'},
+    {bg:'#134E4A',tx:'#2DD4BF',br:'#115E59'},
+    {bg:'#1E3A5F',tx:'#7DD3FC',br:'#2A5080'},
+    {bg:'#3B1F5E',tx:'#C084FC',br:'#4C2D7A'},
+  ];
+  const MED=['🥇','🥈','🥉'];
+  function ini(n){return(n||'').split(' ').filter(Boolean).map(x=>x[0]).join('').substring(0,2).toUpperCase();}
+  function getLevel(p){
+    if(p.contribPts>=75&&p.referrals>=10)return{label:'Elite Partner',cls:'p-elite',rank:3};
+    if(p.contribPts>=40||p.referrals>=30)return{label:'Pro Partner',cls:'p-pro',rank:2};
+    return{label:'Partner',cls:'p-partner',rank:1};
+  }
+  function prog(p){
+    const l=getLevel(p);
+    if(l.rank===3)return'<div class="pdone">✓ Max tier</div>';
+    if(l.rank===2){
+      const pp=Math.min(100,Math.round(p.contribPts/75*100));
+      const rp=Math.min(100,Math.round(p.referrals/10*100));
+      return`<div class="pi"><div class="pi-top"><span class="pi-lbl">Pts → Elite</span><span class="pi-pct">${pp}%</span></div><div class="pi-track"><div class="pi-fill" style="width:${pp}%;background:#F4A628;"></div></div><div class="pi-hint">${p.contribPts>=75?'✓ met':p.contribPts+' / 75 pts'}</div></div><div class="pi"><div class="pi-top"><span class="pi-lbl">Refs → Elite</span><span class="pi-pct">${rp}%</span></div><div class="pi-track"><div class="pi-fill" style="width:${rp}%;background:#F4A628;"></div></div><div class="pi-hint">${p.referrals>=10?'✓ met':p.referrals+' / 10 refs'}</div></div>`;
+    }
+    const pp=Math.min(100,Math.round(p.contribPts/40*100));
+    const rp=Math.min(100,Math.round(p.referrals/30*100));
+    return`<div class="pi"><div class="pi-top"><span class="pi-lbl">Pts → Pro</span><span class="pi-pct">${pp}%</span></div><div class="pi-track"><div class="pi-fill" style="width:${pp}%;background:#00B4D8;"></div></div><div class="pi-hint">${p.contribPts>=40?'✓ met':p.contribPts+' / 40 pts'}</div></div><div class="pi"><div class="pi-top"><span class="pi-lbl">Refs → Pro</span><span class="pi-pct">${rp}%</span></div><div class="pi-track"><div class="pi-fill" style="width:${rp}%;background:#00B4D8;"></div></div><div class="pi-hint">${p.referrals>=30?'✓ met':p.referrals+' / 30 refs'}</div></div>`;
+  }
+  function render(list){
+    const el=document.getElementById('lb-rows');
+    if(!list.length){el.innerHTML='<div class="state"><div class="stitle">No partners yet</div><div class="ssub">Add rows to the Partner Summary sheet to get started.</div></div>';return;}
+    el.innerHTML=list.map((p,i)=>{
+      const l=getLevel(p);
+      const c=AV[i%AV.length];
+      const rk=i<3?`<span class="medal">${MED[i]}</span>`:`<span class="rnum">${i+1}</span>`;
+      const rc=i===0?'row r1':i===1?'row r2':i===2?'row r3':'row';
+      return`<div class="${rc}"><div class="c-rank">${rk}</div><div class="c-av"><div class="av" style="background:${c.bg};color:${c.tx};border-color:${c.br};">${ini(p.name)}</div></div><div class="c-info"><div class="pname">${p.name||''}</div><div class="pfirm">${p.firm||''}</div></div><div class="c-pts"><div class="ptsval">${p.totalPts}</div><div class="ptslbl">pts</div></div><div class="c-lvl"><span class="pill ${l.cls}">${l.label}</span></div><div class="c-prg">${prog(p)}</div></div>`;
+    }).join('');
+  }
+  async function load(){
+    if(!API_URL||API_URL==='YOUR_APPS_SCRIPT_URL_HERE'){
+      document.getElementById('lb-rows').innerHTML='<div class="ebox"><div class="etitle">API not configured</div><div class="esub">Replace YOUR_APPS_SCRIPT_URL_HERE with your Apps Script Web App URL.</div></div>';
+      return;
+    }
+    try{
+      const res=await fetch(API_URL);
+      if(!res.ok)throw new Error('HTTP '+res.status);
+      const data=await res.json();
+      const partners=data.map(p=>({...p,contribPts:Number(p.contribPts)||0,referrals:Number(p.referrals)||0,totalPts:Number(p.totalPts)||0})).filter(p=>p.name&&p.name.trim()!=='').sort((a,b)=>b.totalPts-a.totalPts);
+      const elite=partners.filter(p=>getLevel(p).label==='Elite Partner').length;
+      const pro=partners.filter(p=>getLevel(p).label==='Pro Partner').length;
+      const total=partners.reduce((s,p)=>s+p.totalPts,0);
+      document.getElementById('s-total').textContent=partners.length;
+      document.getElementById('s-elite').textContent=elite;
+      document.getElementById('s-pro').textContent=pro;
+      document.getElementById('s-pts').textContent=total;
+      const now=new Date();
+      const upd=now.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+      document.getElementById('hdr-sub').textContent='2026 active term · updated '+upd.toLowerCase();
+      document.getElementById('ft-upd').textContent='Last sync: '+upd;
+      render(partners);
+    }catch(e){
+      document.getElementById('lb-rows').innerHTML='<div class="ebox"><div class="etitle">Unable to load data</div><div class="esub">Check the API URL and deployment settings.</div></div>';
+      console.error(e);
+    }
+  }
+  load();
+</script>
+</body>
+</html>
