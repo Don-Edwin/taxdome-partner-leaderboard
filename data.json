@@ -1,12 +1,12 @@
 [
   {
-    "name": "Edwin Gonzalez",
-    "email": "emolina@taxdome.com",
-    "firm": "1",
+    "name": "Test",
+    "email": "Test@test.com",
+    "firm": "0",
     "contribPts": 0,
     "referrals": 0,
-    "boosterPts": 0,
-    "specialPts": 1,
+    "boosterPts": 300,
+    "specialPts": 300,
     "totalPts": 0,
     "level": "Partner"
   }
