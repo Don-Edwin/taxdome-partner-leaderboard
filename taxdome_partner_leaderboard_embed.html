@@ -19,10 +19,28 @@
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
   .hdr h1 { font-size: 21px; font-weight: 700; color: #ffffff; margin-bottom: 3px; }
   .hdr-sub { font-size: 11px; color: #3A5070; }
+
   .stats { display: flex; gap: 10px; margin-bottom: 14px; }
   .stat { flex: 1; background: #0F1F35; border: 1px solid #1E3A5F; border-radius: 11px; padding: 13px 14px; }
   .stat-val { font-size: 24px; font-weight: 700; color: #00B4D8; line-height: 1; margin-bottom: 3px; }
   .stat-label { font-size: 10px; color: #3A5070; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .levels-row { display: flex; gap: 8px; margin-bottom: 14px; }
+  .lv { flex: 1; border-radius: 10px; padding: 10px 12px; border: 1px solid; text-align: center; }
+  .lv-icon { font-size: 16px; margin-bottom: 4px; }
+  .lv-name { font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+  .lv-pts { font-size: 10px; opacity: 0.75; }
+  .lv.advocate { background: rgba(180,100,50,0.1); border-color: rgba(180,100,50,0.3); }
+  .lv.advocate .lv-name { color: #CD7F32; }
+  .lv.champion { background: rgba(155,163,175,0.1); border-color: rgba(155,163,175,0.3); }
+  .lv.champion .lv-name { color: #9BA3AF; }
+  .lv.trailblazer { background: rgba(180,140,20,0.1); border-color: rgba(180,140,20,0.3); }
+  .lv.trailblazer .lv-name { color: #C9A800; }
+  .lv.visionary { background: rgba(0,119,182,0.1); border-color: rgba(0,119,182,0.3); }
+  .lv.visionary .lv-name { color: #0077B6; }
+  .lv.legend { background: rgba(120,60,180,0.1); border-color: rgba(120,60,180,0.3); }
+  .lv.legend .lv-name { color: #9B4DCA; }
+
   .tbl-outer { background: #0F1F35; border: 1px solid #1E3A5F; border-radius: 14px; overflow: hidden; }
   .tbl-head { display: flex; align-items: center; padding: 9px 16px; border-bottom: 1px solid #1E3A5F; background: #0A1628; }
   .th { font-size: 10px; font-weight: 700; color: #3A5070; text-transform: uppercase; letter-spacing: 0.07em; }
@@ -31,12 +49,14 @@
   .th-pts { width: 80px; text-align: right; flex-shrink: 0; }
   .th-lvl { width: 105px; text-align: center; flex-shrink: 0; }
   .th-prg { width: 155px; flex-shrink: 0; padding-left: 12px; }
+
   .row { display: flex; align-items: center; padding: 13px 16px; border-bottom: 1px solid #142030; transition: background 0.15s; }
   .row:last-child { border-bottom: none; }
   .row:hover { background: rgba(0,180,216,0.03); }
-  .row.r1 { background: rgba(244,166,40,0.04); }
-  .row.r2 { background: rgba(180,180,180,0.03); }
-  .row.r3 { background: rgba(205,127,50,0.03); }
+  .row.r1 { background: rgba(201,168,0,0.05); }
+  .row.r2 { background: rgba(155,163,175,0.04); }
+  .row.r3 { background: rgba(205,127,50,0.04); }
+
   .c-rank { width: 38px; flex-shrink: 0; text-align: center; }
   .medal { font-size: 19px; line-height: 1; }
   .rnum { font-size: 13px; font-weight: 700; color: #3A5070; }
@@ -49,10 +69,14 @@
   .ptsval { font-size: 16px; font-weight: 700; color: #00B4D8; }
   .ptslbl { font-size: 9px; color: #3A5070; }
   .c-lvl { width: 105px; text-align: center; flex-shrink: 0; }
+
   .pill { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
-  .p-elite { background: rgba(244,166,40,0.1); color: #F4A628; border-color: rgba(244,166,40,0.3); }
-  .p-pro { background: rgba(0,180,216,0.1); color: #00B4D8; border-color: rgba(0,180,216,0.25); }
-  .p-partner { background: rgba(100,150,220,0.08); color: #6496DC; border-color: rgba(100,150,220,0.2); }
+  .p-advocate   { background: rgba(180,100,50,0.1);  color: #CD7F32; border-color: rgba(180,100,50,0.3); }
+  .p-champion   { background: rgba(155,163,175,0.1); color: #9BA3AF; border-color: rgba(155,163,175,0.3); }
+  .p-trailblazer{ background: rgba(180,140,20,0.12); color: #C9A800; border-color: rgba(180,140,20,0.35); }
+  .p-visionary  { background: rgba(0,119,182,0.1);   color: #4DA8DA; border-color: rgba(0,119,182,0.3); }
+  .p-legend     { background: rgba(120,60,180,0.12); color: #B57BEA; border-color: rgba(120,60,180,0.35); }
+
   .c-prg { width: 155px; flex-shrink: 0; padding-left: 12px; }
   .pi { margin-bottom: 4px; }
   .pi:last-child { margin-bottom: 0; }
@@ -63,6 +87,7 @@
   .pi-fill { height: 4px; border-radius: 2px; }
   .pi-hint { font-size: 9px; color: #253545; margin-top: 1px; }
   .pdone { font-size: 11px; font-weight: 600; color: #4ADE80; }
+
   .state { text-align: center; padding: 44px 20px; }
   .spin { width: 30px; height: 30px; border: 3px solid #1E3A5F; border-top-color: #00B4D8; border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 10px; }
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -73,6 +98,8 @@
   .esub { font-size: 10px; color: #3A5070; }
   .ft { display: flex; justify-content: space-between; padding: 12px 2px 0; flex-wrap: wrap; gap: 4px; }
   .fn { font-size: 10px; color: #253545; }
+
+  @media (max-width: 620px) { .levels-row { flex-wrap: wrap; } .lv { min-width: calc(33% - 8px); } }
   @media (max-width: 580px) { .th-prg { display: none; } .c-prg { display: none; } .th-lvl { width: 85px; } .c-lvl { width: 85px; } .th-pts { width: 65px; } .c-pts { width: 65px; } }
   @media (max-width: 420px) { .th-lvl { display: none; } .c-lvl { display: none; } }
 </style>
@@ -97,12 +124,22 @@
     <h1>Partner Program Leaderboard</h1>
     <div class="hdr-sub" id="hdr-sub">2026 active term · loading...</div>
   </div>
+
   <div class="stats">
     <div class="stat"><div class="stat-val" id="s-total">--</div><div class="stat-label">Partners</div></div>
-    <div class="stat"><div class="stat-val" id="s-pro">--</div><div class="stat-label">Pro Partners</div></div>
-    <div class="stat"><div class="stat-val" id="s-elite">--</div><div class="stat-label">Elite Partners</div></div>
+    <div class="stat"><div class="stat-val" id="s-legend">--</div><div class="stat-label">Legends</div></div>
+    <div class="stat"><div class="stat-val" id="s-visionary">--</div><div class="stat-label">Visionaries</div></div>
     <div class="stat"><div class="stat-val" id="s-pts">--</div><div class="stat-label">Pts Awarded</div></div>
   </div>
+
+  <div class="levels-row">
+    <div class="lv advocate"><div class="lv-icon">🥉</div><div class="lv-name">Advocate</div><div class="lv-pts">0–14 pts</div></div>
+    <div class="lv champion"><div class="lv-icon">🥈</div><div class="lv-name">Champion</div><div class="lv-pts">15–29 pts</div></div>
+    <div class="lv trailblazer"><div class="lv-icon">🥇</div><div class="lv-name">Trailblazer</div><div class="lv-pts">30–49 pts</div></div>
+    <div class="lv visionary"><div class="lv-icon">💎</div><div class="lv-name">Visionary</div><div class="lv-pts">50–74 pts</div></div>
+    <div class="lv legend"><div class="lv-icon">👑</div><div class="lv-name">Legend</div><div class="lv-pts">75+ pts</div></div>
+  </div>
+
   <div class="tbl-outer">
     <div class="tbl-head">
       <div class="th th-rank">#</div>
@@ -115,8 +152,9 @@
       <div class="state"><div class="spin"></div><div class="stitle">Loading leaderboard...</div><div class="ssub">Fetching live data from Google Sheets</div></div>
     </div>
   </div>
+
   <div class="ft">
-    <span class="fn">Points = contribution + booster pts &nbsp;·&nbsp; Referrals tracked separately for tier qualification</span>
+    <span class="fn">Points = contribution + booster pts &nbsp;·&nbsp; Updated automatically when sheet changes</span>
     <span class="fn" id="ft-upd"></span>
   </div>
 </div>
@@ -133,48 +171,72 @@
     {bg:'#3B1F5E',tx:'#C084FC',br:'#4C2D7A'},
   ];
   const MED=['🥇','🥈','🥉'];
+
   function ini(n){return(n||'').split(' ').filter(Boolean).map(x=>x[0]).join('').substring(0,2).toUpperCase();}
+
   function getLevel(p){
-    if(p.contribPts>=75&&p.referrals>=10)return{label:'Elite Partner',cls:'p-elite',rank:3};
-    if(p.contribPts>=40||p.referrals>=30)return{label:'Pro Partner',cls:'p-pro',rank:2};
-    return{label:'Partner',cls:'p-partner',rank:1};
+    const pts = p.totalPts;
+    if(pts>=75) return {label:'Legend',     cls:'p-legend',      rank:5, next:null,        color:'#9B4DCA'};
+    if(pts>=50) return {label:'Visionary',  cls:'p-visionary',   rank:4, next:'Legend',     color:'#4DA8DA', threshold:75};
+    if(pts>=30) return {label:'Trailblazer',cls:'p-trailblazer', rank:3, next:'Visionary',  color:'#C9A800', threshold:50};
+    if(pts>=15) return {label:'Champion',   cls:'p-champion',    rank:2, next:'Trailblazer',color:'#9BA3AF', threshold:30};
+    return              {label:'Advocate',  cls:'p-advocate',    rank:1, next:'Champion',   color:'#CD7F32', threshold:15};
   }
+
   function prog(p){
-    const l=getLevel(p);
-    if(l.rank===3)return'<div class="pdone">✓ Max tier</div>';
-    if(l.rank===2){
-      const pp=Math.min(100,Math.round(p.contribPts/75*100));
-      const rp=Math.min(100,Math.round(p.referrals/10*100));
-      return`<div class="pi"><div class="pi-top"><span class="pi-lbl">Pts → Elite</span><span class="pi-pct">${pp}%</span></div><div class="pi-track"><div class="pi-fill" style="width:${pp}%;background:#F4A628;"></div></div><div class="pi-hint">${p.contribPts>=75?'✓ met':p.contribPts+' / 75 pts'}</div></div><div class="pi"><div class="pi-top"><span class="pi-lbl">Refs → Elite</span><span class="pi-pct">${rp}%</span></div><div class="pi-track"><div class="pi-fill" style="width:${rp}%;background:#F4A628;"></div></div><div class="pi-hint">${p.referrals>=10?'✓ met':p.referrals+' / 10 refs'}</div></div>`;
-    }
-    const pp=Math.min(100,Math.round(p.contribPts/40*100));
-    const rp=Math.min(100,Math.round(p.referrals/30*100));
-    return`<div class="pi"><div class="pi-top"><span class="pi-lbl">Pts → Pro</span><span class="pi-pct">${pp}%</span></div><div class="pi-track"><div class="pi-fill" style="width:${pp}%;background:#00B4D8;"></div></div><div class="pi-hint">${p.contribPts>=40?'✓ met':p.contribPts+' / 40 pts'}</div></div><div class="pi"><div class="pi-top"><span class="pi-lbl">Refs → Pro</span><span class="pi-pct">${rp}%</span></div><div class="pi-track"><div class="pi-fill" style="width:${rp}%;background:#00B4D8;"></div></div><div class="pi-hint">${p.referrals>=30?'✓ met':p.referrals+' / 30 refs'}</div></div>`;
+    const l = getLevel(p);
+    if(l.rank===5) return '<div class="pdone">👑 Legend status achieved</div>';
+    const pct = Math.min(100, Math.round((p.totalPts / l.threshold) * 100));
+    const needed = l.threshold - p.totalPts;
+    return `
+      <div class="pi">
+        <div class="pi-top">
+          <span class="pi-lbl">Pts → ${l.next}</span>
+          <span class="pi-pct">${pct}%</span>
+        </div>
+        <div class="pi-track"><div class="pi-fill" style="width:${pct}%;background:${l.color};"></div></div>
+        <div class="pi-hint">${p.totalPts} / ${l.threshold} pts · ${needed} to go</div>
+      </div>`;
   }
+
   function render(list){
     const el=document.getElementById('lb-rows');
-    if(!list.length){el.innerHTML='<div class="state"><div class="stitle">No partners yet</div><div class="ssub">Add rows to the Partner Summary sheet to get started.</div></div>';return;}
+    if(!list.length){
+      el.innerHTML='<div class="state"><div class="stitle">No partners yet</div><div class="ssub">Add rows to the Partner Summary sheet to get started.</div></div>';
+      return;
+    }
     el.innerHTML=list.map((p,i)=>{
       const l=getLevel(p);
       const c=AV[i%AV.length];
       const rk=i<3?`<span class="medal">${MED[i]}</span>`:`<span class="rnum">${i+1}</span>`;
       const rc=i===0?'row r1':i===1?'row r2':i===2?'row r3':'row';
-      return`<div class="${rc}"><div class="c-rank">${rk}</div><div class="c-av"><div class="av" style="background:${c.bg};color:${c.tx};border-color:${c.br};">${ini(p.name)}</div></div><div class="c-info"><div class="pname">${p.name||''}</div><div class="pfirm">${p.firm||''}</div></div><div class="c-pts"><div class="ptsval">${p.totalPts}</div><div class="ptslbl">pts</div></div><div class="c-lvl"><span class="pill ${l.cls}">${l.label}</span></div><div class="c-prg">${prog(p)}</div></div>`;
+      return`<div class="${rc}">
+        <div class="c-rank">${rk}</div>
+        <div class="c-av"><div class="av" style="background:${c.bg};color:${c.tx};border-color:${c.br};">${ini(p.name)}</div></div>
+        <div class="c-info"><div class="pname">${p.name||''}</div><div class="pfirm">${p.firm||''}</div></div>
+        <div class="c-pts"><div class="ptsval">${p.totalPts}</div><div class="ptslbl">pts</div></div>
+        <div class="c-lvl"><span class="pill ${l.cls}">${l.label}</span></div>
+        <div class="c-prg">${prog(p)}</div>
+      </div>`;
     }).join('');
   }
+
   async function load(){
     try{
-      const res=await fetch(API_URL);
-      if(!res.ok)throw new Error('HTTP '+res.status);
+      const res=await fetch(API_URL + '?t=' + Date.now());
+      if(!res.ok) throw new Error('HTTP '+res.status);
       const data=await res.json();
-      const partners=data.map(p=>({...p,contribPts:Number(p.contribPts)||0,referrals:Number(p.referrals)||0,totalPts:Number(p.totalPts)||0})).filter(p=>p.name&&p.name.trim()!=='').sort((a,b)=>b.totalPts-a.totalPts);
-      const elite=partners.filter(p=>getLevel(p).label==='Elite Partner').length;
-      const pro=partners.filter(p=>getLevel(p).label==='Pro Partner').length;
-      const total=partners.reduce((s,p)=>s+p.totalPts,0);
-      document.getElementById('s-total').textContent=partners.length;
-      document.getElementById('s-elite').textContent=elite;
-      document.getElementById('s-pro').textContent=pro;
-      document.getElementById('s-pts').textContent=total;
+      const partners=data
+        .map(p=>({...p, totalPts:Number(p.totalPts)||0, contribPts:Number(p.contribPts)||0}))
+        .filter(p=>p.name&&p.name.trim()!=='')
+        .sort((a,b)=>b.totalPts-a.totalPts);
+      const legends    = partners.filter(p=>getLevel(p).label==='Legend').length;
+      const visionaries= partners.filter(p=>getLevel(p).label==='Visionary').length;
+      const total      = partners.reduce((s,p)=>s+p.totalPts,0);
+      document.getElementById('s-total').textContent     = partners.length;
+      document.getElementById('s-legend').textContent    = legends;
+      document.getElementById('s-visionary').textContent = visionaries;
+      document.getElementById('s-pts').textContent       = total;
       const now=new Date();
       const upd=now.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
       document.getElementById('hdr-sub').textContent='2026 active term · updated '+upd.toLowerCase();
