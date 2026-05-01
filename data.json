@@ -9,5 +9,16 @@
     "specialPts": 5,
     "totalPts": 5,
     "level": "Advocate"
+  },
+  {
+    "name": "Test 2",
+    "email": "Test2@test2.com",
+    "firm": "0",
+    "contribPts": 0,
+    "referrals": 0,
+    "boosterPts": 30,
+    "specialPts": 30,
+    "totalPts": 30,
+    "level": "Trailblazer"
   }
 ]
