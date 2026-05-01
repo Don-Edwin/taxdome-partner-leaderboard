@@ -163,10 +163,6 @@
     }).join('');
   }
   async function load(){
-    if(!API_URL||API_URL==='YOUR_APPS_SCRIPT_URL_HERE'){
-      document.getElementById('lb-rows').innerHTML='<div class="ebox"><div class="etitle">API not configured</div><div class="esub">Replace YOUR_APPS_SCRIPT_URL_HERE with your Apps Script Web App URL.</div></div>';
-      return;
-    }
     try{
       const res=await fetch(API_URL);
       if(!res.ok)throw new Error('HTTP '+res.status);
@@ -185,7 +181,7 @@
       document.getElementById('ft-upd').textContent='Last sync: '+upd;
       render(partners);
     }catch(e){
-      document.getElementById('lb-rows').innerHTML='<div class="ebox"><div class="etitle">Unable to load data</div><div class="esub">Check the API URL and deployment settings.</div></div>';
+      document.getElementById('lb-rows').innerHTML='<div class="ebox"><div class="etitle">Unable to load data</div><div class="esub">Check that data.json exists in your GitHub repo.</div></div>';
       console.error(e);
     }
   }
