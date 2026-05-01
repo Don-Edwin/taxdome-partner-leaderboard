@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TaxDome Partner Program Leaderboard</title>
+<title>TaxDome Ambassador Program Leaderboard</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #0A1628; color: #E6EDF3; padding: 0; margin: 0; }
   .lb { max-width: 860px; margin: 0 auto; padding: 20px 16px 32px; }
+
   .hdr { background: #0F1F35; border: 1px solid #1E3A5F; border-radius: 14px; padding: 20px 22px; margin-bottom: 14px; position: relative; overflow: hidden; }
   .hdr-stripe { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #03045E, #0077B6, #00B4D8, #0077B6, #03045E); }
   .hdr-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
@@ -20,26 +21,22 @@
   .hdr h1 { font-size: 21px; font-weight: 700; color: #ffffff; margin-bottom: 3px; }
   .hdr-sub { font-size: 11px; color: #3A5070; }
 
-  .stats { display: flex; gap: 10px; margin-bottom: 14px; }
-  .stat { flex: 1; background: #0F1F35; border: 1px solid #1E3A5F; border-radius: 11px; padding: 13px 14px; }
-  .stat-val { font-size: 24px; font-weight: 700; color: #00B4D8; line-height: 1; margin-bottom: 3px; }
-  .stat-label { font-size: 10px; color: #3A5070; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-
   .levels-row { display: flex; gap: 8px; margin-bottom: 14px; }
-  .lv { flex: 1; border-radius: 10px; padding: 10px 12px; border: 1px solid; text-align: center; }
-  .lv-icon { font-size: 16px; margin-bottom: 4px; }
+  .lv { flex: 1; border-radius: 10px; padding: 12px 10px; border: 1px solid; text-align: center; }
+  .lv-count { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .lv-icon { font-size: 15px; margin-bottom: 3px; }
   .lv-name { font-size: 11px; font-weight: 700; margin-bottom: 2px; }
-  .lv-pts { font-size: 10px; opacity: 0.75; }
-  .lv.advocate { background: rgba(180,100,50,0.1); border-color: rgba(180,100,50,0.3); }
-  .lv.advocate .lv-name { color: #CD7F32; }
-  .lv.champion { background: rgba(155,163,175,0.1); border-color: rgba(155,163,175,0.3); }
-  .lv.champion .lv-name { color: #9BA3AF; }
-  .lv.trailblazer { background: rgba(180,140,20,0.1); border-color: rgba(180,140,20,0.3); }
-  .lv.trailblazer .lv-name { color: #C9A800; }
-  .lv.visionary { background: rgba(0,119,182,0.1); border-color: rgba(0,119,182,0.3); }
-  .lv.visionary .lv-name { color: #0077B6; }
-  .lv.legend { background: rgba(120,60,180,0.1); border-color: rgba(120,60,180,0.3); }
-  .lv.legend .lv-name { color: #9B4DCA; }
+  .lv-pts { font-size: 10px; opacity: 0.65; }
+  .lv.advocate { background: rgba(180,100,50,0.08); border-color: rgba(180,100,50,0.25); }
+  .lv.advocate .lv-count, .lv.advocate .lv-name { color: #CD7F32; }
+  .lv.champion { background: rgba(155,163,175,0.08); border-color: rgba(155,163,175,0.25); }
+  .lv.champion .lv-count, .lv.champion .lv-name { color: #9BA3AF; }
+  .lv.trailblazer { background: rgba(180,140,20,0.08); border-color: rgba(180,140,20,0.25); }
+  .lv.trailblazer .lv-count, .lv.trailblazer .lv-name { color: #C9A800; }
+  .lv.visionary { background: rgba(0,119,182,0.08); border-color: rgba(0,119,182,0.25); }
+  .lv.visionary .lv-count, .lv.visionary .lv-name { color: #4DA8DA; }
+  .lv.legend { background: rgba(120,60,180,0.08); border-color: rgba(120,60,180,0.25); }
+  .lv.legend .lv-count, .lv.legend .lv-name { color: #B57BEA; }
 
   .tbl-outer { background: #0F1F35; border: 1px solid #1E3A5F; border-radius: 14px; overflow: hidden; }
   .tbl-head { display: flex; align-items: center; padding: 9px 16px; border-bottom: 1px solid #1E3A5F; background: #0A1628; }
@@ -71,11 +68,11 @@
   .c-lvl { width: 105px; text-align: center; flex-shrink: 0; }
 
   .pill { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
-  .p-advocate   { background: rgba(180,100,50,0.1);  color: #CD7F32; border-color: rgba(180,100,50,0.3); }
-  .p-champion   { background: rgba(155,163,175,0.1); color: #9BA3AF; border-color: rgba(155,163,175,0.3); }
-  .p-trailblazer{ background: rgba(180,140,20,0.12); color: #C9A800; border-color: rgba(180,140,20,0.35); }
-  .p-visionary  { background: rgba(0,119,182,0.1);   color: #4DA8DA; border-color: rgba(0,119,182,0.3); }
-  .p-legend     { background: rgba(120,60,180,0.12); color: #B57BEA; border-color: rgba(120,60,180,0.35); }
+  .p-advocate    { background: rgba(180,100,50,0.1);  color: #CD7F32; border-color: rgba(180,100,50,0.3); }
+  .p-champion    { background: rgba(155,163,175,0.1); color: #9BA3AF; border-color: rgba(155,163,175,0.3); }
+  .p-trailblazer { background: rgba(180,140,20,0.12); color: #C9A800; border-color: rgba(180,140,20,0.35); }
+  .p-visionary   { background: rgba(0,119,182,0.1);   color: #4DA8DA; border-color: rgba(0,119,182,0.3); }
+  .p-legend      { background: rgba(120,60,180,0.12); color: #B57BEA; border-color: rgba(120,60,180,0.35); }
 
   .c-prg { width: 155px; flex-shrink: 0; padding-left: 12px; }
   .pi { margin-bottom: 4px; }
@@ -96,16 +93,19 @@
   .ebox { background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.18); border-radius: 10px; padding: 16px; margin: 16px; text-align: center; }
   .etitle { font-size: 12px; font-weight: 600; color: #F87171; margin-bottom: 3px; }
   .esub { font-size: 10px; color: #3A5070; }
-  .ft { display: flex; justify-content: space-between; padding: 12px 2px 0; flex-wrap: wrap; gap: 4px; }
-  .fn { font-size: 10px; color: #253545; }
 
-  @media (max-width: 620px) { .levels-row { flex-wrap: wrap; } .lv { min-width: calc(33% - 8px); } }
+  .ft { display: flex; justify-content: space-between; padding: 12px 2px 0; flex-wrap: wrap; gap: 4px; align-items: center; }
+  .fn { font-size: 10px; color: #253545; }
+  .ft-pts { font-size: 11px; color: #3A5070; font-weight: 500; }
+
+  @media (max-width: 620px) { .levels-row { flex-wrap: wrap; } .lv { min-width: calc(33% - 6px); } }
   @media (max-width: 580px) { .th-prg { display: none; } .c-prg { display: none; } .th-lvl { width: 85px; } .c-lvl { width: 85px; } .th-pts { width: 65px; } .c-pts { width: 65px; } }
   @media (max-width: 420px) { .th-lvl { display: none; } .c-lvl { display: none; } }
 </style>
 </head>
 <body>
 <div class="lb">
+
   <div class="hdr">
     <div class="hdr-stripe"></div>
     <div class="hdr-top">
@@ -121,23 +121,41 @@
       </div>
       <div class="live-pill"><span class="live-dot"></span>Live</div>
     </div>
-    <h1>Partner Program Leaderboard</h1>
+    <h1>Ambassador Program Leaderboard</h1>
     <div class="hdr-sub" id="hdr-sub">2026 active term · loading...</div>
   </div>
 
-  <div class="stats">
-    <div class="stat"><div class="stat-val" id="s-total">--</div><div class="stat-label">Partners</div></div>
-    <div class="stat"><div class="stat-val" id="s-legend">--</div><div class="stat-label">Legends</div></div>
-    <div class="stat"><div class="stat-val" id="s-visionary">--</div><div class="stat-label">Visionaries</div></div>
-    <div class="stat"><div class="stat-val" id="s-pts">--</div><div class="stat-label">Pts Awarded</div></div>
-  </div>
-
   <div class="levels-row">
-    <div class="lv advocate"><div class="lv-icon">🥉</div><div class="lv-name">Advocate</div><div class="lv-pts">0–14 pts</div></div>
-    <div class="lv champion"><div class="lv-icon">🥈</div><div class="lv-name">Champion</div><div class="lv-pts">15–29 pts</div></div>
-    <div class="lv trailblazer"><div class="lv-icon">🥇</div><div class="lv-name">Trailblazer</div><div class="lv-pts">30–49 pts</div></div>
-    <div class="lv visionary"><div class="lv-icon">💎</div><div class="lv-name">Visionary</div><div class="lv-pts">50–74 pts</div></div>
-    <div class="lv legend"><div class="lv-icon">👑</div><div class="lv-name">Legend</div><div class="lv-pts">75+ pts</div></div>
+    <div class="lv advocate">
+      <div class="lv-count" id="c-advocate">--</div>
+      <div class="lv-icon">🥉</div>
+      <div class="lv-name">Advocate</div>
+      <div class="lv-pts">0–14 pts</div>
+    </div>
+    <div class="lv champion">
+      <div class="lv-count" id="c-champion">--</div>
+      <div class="lv-icon">🥈</div>
+      <div class="lv-name">Champion</div>
+      <div class="lv-pts">15–29 pts</div>
+    </div>
+    <div class="lv trailblazer">
+      <div class="lv-count" id="c-trailblazer">--</div>
+      <div class="lv-icon">🥇</div>
+      <div class="lv-name">Trailblazer</div>
+      <div class="lv-pts">30–49 pts</div>
+    </div>
+    <div class="lv visionary">
+      <div class="lv-count" id="c-visionary">--</div>
+      <div class="lv-icon">💎</div>
+      <div class="lv-name">Visionary</div>
+      <div class="lv-pts">50–74 pts</div>
+    </div>
+    <div class="lv legend">
+      <div class="lv-count" id="c-legend">--</div>
+      <div class="lv-icon">👑</div>
+      <div class="lv-name">Legend</div>
+      <div class="lv-pts">75+ pts</div>
+    </div>
   </div>
 
   <div class="tbl-outer">
@@ -149,12 +167,13 @@
       <div class="th th-prg">Next tier</div>
     </div>
     <div id="lb-rows">
-      <div class="state"><div class="spin"></div><div class="stitle">Loading leaderboard...</div><div class="ssub">Fetching live data from Google Sheets</div></div>
+      <div class="state"><div class="spin"></div><div class="stitle">Loading leaderboard...</div><div class="ssub">Fetching live data</div></div>
     </div>
   </div>
 
   <div class="ft">
-    <span class="fn">Points = contribution + booster pts &nbsp;·&nbsp; Updated automatically when sheet changes</span>
+    <span class="fn">Updated automatically when sheet changes</span>
+    <span class="ft-pts" id="ft-pts"></span>
     <span class="fn" id="ft-upd"></span>
   </div>
 </div>
@@ -175,34 +194,30 @@
   function ini(n){return(n||'').split(' ').filter(Boolean).map(x=>x[0]).join('').substring(0,2).toUpperCase();}
 
   function getLevel(p){
-    const pts = p.totalPts;
-    if(pts>=75) return {label:'Legend',     cls:'p-legend',      rank:5, next:null,        color:'#9B4DCA'};
-    if(pts>=50) return {label:'Visionary',  cls:'p-visionary',   rank:4, next:'Legend',     color:'#4DA8DA', threshold:75};
-    if(pts>=30) return {label:'Trailblazer',cls:'p-trailblazer', rank:3, next:'Visionary',  color:'#C9A800', threshold:50};
-    if(pts>=15) return {label:'Champion',   cls:'p-champion',    rank:2, next:'Trailblazer',color:'#9BA3AF', threshold:30};
-    return              {label:'Advocate',  cls:'p-advocate',    rank:1, next:'Champion',   color:'#CD7F32', threshold:15};
+    const pts=p.totalPts;
+    if(pts>=75) return{label:'Legend',     cls:'p-legend',      rank:5,next:null,         color:'#B57BEA',threshold:null};
+    if(pts>=50) return{label:'Visionary',  cls:'p-visionary',   rank:4,next:'Legend',     color:'#4DA8DA',threshold:75};
+    if(pts>=30) return{label:'Trailblazer',cls:'p-trailblazer', rank:3,next:'Visionary',  color:'#C9A800',threshold:50};
+    if(pts>=15) return{label:'Champion',   cls:'p-champion',    rank:2,next:'Trailblazer',color:'#9BA3AF',threshold:30};
+    return             {label:'Advocate',  cls:'p-advocate',    rank:1,next:'Champion',   color:'#CD7F32',threshold:15};
   }
 
   function prog(p){
-    const l = getLevel(p);
-    if(l.rank===5) return '<div class="pdone">👑 Legend status achieved</div>';
-    const pct = Math.min(100, Math.round((p.totalPts / l.threshold) * 100));
-    const needed = l.threshold - p.totalPts;
-    return `
-      <div class="pi">
-        <div class="pi-top">
-          <span class="pi-lbl">Pts → ${l.next}</span>
-          <span class="pi-pct">${pct}%</span>
-        </div>
-        <div class="pi-track"><div class="pi-fill" style="width:${pct}%;background:${l.color};"></div></div>
-        <div class="pi-hint">${p.totalPts} / ${l.threshold} pts · ${needed} to go</div>
-      </div>`;
+    const l=getLevel(p);
+    if(l.rank===5) return'<div class="pdone">👑 Legend status achieved</div>';
+    const pct=Math.min(100,Math.round((p.totalPts/l.threshold)*100));
+    const needed=l.threshold-p.totalPts;
+    return`<div class="pi">
+      <div class="pi-top"><span class="pi-lbl">Pts → ${l.next}</span><span class="pi-pct">${pct}%</span></div>
+      <div class="pi-track"><div class="pi-fill" style="width:${pct}%;background:${l.color};"></div></div>
+      <div class="pi-hint">${p.totalPts} / ${l.threshold} pts · ${needed} to go</div>
+    </div>`;
   }
 
   function render(list){
     const el=document.getElementById('lb-rows');
     if(!list.length){
-      el.innerHTML='<div class="state"><div class="stitle">No partners yet</div><div class="ssub">Add rows to the Partner Summary sheet to get started.</div></div>';
+      el.innerHTML='<div class="state"><div class="stitle">No ambassadors yet</div><div class="ssub">Add rows to the Partner Summary sheet to get started.</div></div>';
       return;
     }
     el.innerHTML=list.map((p,i)=>{
@@ -210,10 +225,11 @@
       const c=AV[i%AV.length];
       const rk=i<3?`<span class="medal">${MED[i]}</span>`:`<span class="rnum">${i+1}</span>`;
       const rc=i===0?'row r1':i===1?'row r2':i===2?'row r3':'row';
+      const firm=p.firm&&p.firm!=='0'&&p.firm.trim()!==''?p.firm:'';
       return`<div class="${rc}">
         <div class="c-rank">${rk}</div>
         <div class="c-av"><div class="av" style="background:${c.bg};color:${c.tx};border-color:${c.br};">${ini(p.name)}</div></div>
-        <div class="c-info"><div class="pname">${p.name||''}</div><div class="pfirm">${p.firm||''}</div></div>
+        <div class="c-info"><div class="pname">${p.name||''}</div>${firm?`<div class="pfirm">${firm}</div>`:''}</div>
         <div class="c-pts"><div class="ptsval">${p.totalPts}</div><div class="ptslbl">pts</div></div>
         <div class="c-lvl"><span class="pill ${l.cls}">${l.label}</span></div>
         <div class="c-prg">${prog(p)}</div>
@@ -223,24 +239,26 @@
 
   async function load(){
     try{
-      const res=await fetch(API_URL + '?t=' + Date.now());
+      const res=await fetch(API_URL+'?t='+Date.now());
       if(!res.ok) throw new Error('HTTP '+res.status);
       const data=await res.json();
       const partners=data
-        .map(p=>({...p, totalPts:Number(p.totalPts)||0, contribPts:Number(p.contribPts)||0}))
+        .map(p=>({...p,totalPts:Number(p.totalPts)||0,contribPts:Number(p.contribPts)||0}))
         .filter(p=>p.name&&p.name.trim()!=='')
         .sort((a,b)=>b.totalPts-a.totalPts);
-      const legends    = partners.filter(p=>getLevel(p).label==='Legend').length;
-      const visionaries= partners.filter(p=>getLevel(p).label==='Visionary').length;
-      const total      = partners.reduce((s,p)=>s+p.totalPts,0);
-      document.getElementById('s-total').textContent     = partners.length;
-      document.getElementById('s-legend').textContent    = legends;
-      document.getElementById('s-visionary').textContent = visionaries;
-      document.getElementById('s-pts').textContent       = total;
+
+      document.getElementById('c-advocate').textContent   = partners.filter(p=>getLevel(p).label==='Advocate').length;
+      document.getElementById('c-champion').textContent   = partners.filter(p=>getLevel(p).label==='Champion').length;
+      document.getElementById('c-trailblazer').textContent= partners.filter(p=>getLevel(p).label==='Trailblazer').length;
+      document.getElementById('c-visionary').textContent  = partners.filter(p=>getLevel(p).label==='Visionary').length;
+      document.getElementById('c-legend').textContent     = partners.filter(p=>getLevel(p).label==='Legend').length;
+
+      const totalPts=partners.reduce((s,p)=>s+p.totalPts,0);
       const now=new Date();
       const upd=now.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' · '+now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
-      document.getElementById('hdr-sub').textContent='2026 active term · updated '+upd.toLowerCase();
-      document.getElementById('ft-upd').textContent='Last sync: '+upd;
+      document.getElementById('hdr-sub').textContent=`2026 active term · ${partners.length} ambassador${partners.length!==1?'s':''} · updated ${upd.toLowerCase()}`;
+      document.getElementById('ft-pts').textContent=`${totalPts} total pts awarded`;
+      document.getElementById('ft-upd').textContent=`Last sync: ${upd}`;
       render(partners);
     }catch(e){
       document.getElementById('lb-rows').innerHTML='<div class="ebox"><div class="etitle">Unable to load data</div><div class="esub">Check that data.json exists in your GitHub repo.</div></div>';
