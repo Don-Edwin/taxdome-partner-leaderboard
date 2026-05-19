@@ -9,5 +9,27 @@
     "specialPts": 0,
     "totalPts": 1,
     "level": "Advocate"
+  },
+  {
+    "name": "Gustavo Blanco",
+    "email": "gustavoblanco@calderonblancocpa.com",
+    "firm": "1",
+    "contribPts": 0,
+    "referrals": 0,
+    "boosterPts": 0,
+    "specialPts": 0,
+    "totalPts": 1,
+    "level": "Advocate"
+  },
+  {
+    "name": "Taina Lopes Costa",
+    "email": "taina.costa@bizagile.us",
+    "firm": "4",
+    "contribPts": 0,
+    "referrals": 0,
+    "boosterPts": 0,
+    "specialPts": 0,
+    "totalPts": 4,
+    "level": "Advocate"
   }
 ]
