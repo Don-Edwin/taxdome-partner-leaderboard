@@ -34,13 +34,13 @@
   },
   {
     "name": "Kelly Rohrs",
-    "email": "",
-    "firm": "0",
+    "email": "kelly@krohrscpa.com",
+    "firm": "1",
     "contribPts": 0,
     "referrals": 0,
     "boosterPts": 0,
     "specialPts": 0,
-    "totalPts": 0,
+    "totalPts": 1,
     "level": "Advocate"
   }
 ]
