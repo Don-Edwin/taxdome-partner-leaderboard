@@ -75,5 +75,16 @@
     "specialPts": 0,
     "totalPts": 13,
     "level": "Advocate"
+  },
+  {
+    "name": "Tony Proctor",
+    "email": "tony@proctortaxprep.com",
+    "firm": "3",
+    "contribPts": 0,
+    "referrals": 0,
+    "boosterPts": 0,
+    "specialPts": 0,
+    "totalPts": 3,
+    "level": "Advocate"
   }
 ]
